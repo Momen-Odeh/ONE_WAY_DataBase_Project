@@ -1,0 +1,35 @@
+INSERT INTO Client VALUES('7865','sami','0598','hebron');
+INSERT INTO Client VALUES('5896','emad','0522','jerusalem');
+INSERT INTO Client VALUES('4489','hani','05666','Ramallah');
+INSERT INTO Client VALUES('9862','samer','0593','tulkarem');
+INSERT INTO Client VALUES('4068','ali','0597','nablus');
+
+INSERT INTO Recipient VALUES('89','hadi','05941','nablus-Huwara');
+INSERT INTO Recipient VALUES('99','anan','05931','Ramallah-Turmus Aya');
+INSERT INTO Recipient VALUES('68','rami','05922','jerusalem-Damascus Gate');
+INSERT INTO Recipient VALUES('57','abd-alrhman','05632','hebron-Dura');
+INSERT INTO Recipient VALUES('26','zain','05677','tulkarem-atil');
+
+INSERT INTO Employee VALUES('406820142',1,'Momen Odeh','0597627566','nablus-Huwara',TO_DATE('2001/04/26', 'yyyy/mm/dd'));
+INSERT INTO Employee VALUES('401229143',2,'Mohee Qwareeq','0598788081','Nablus-Awarta',TO_DATE('2000/09/10', 'yyyy/mm/dd'));
+INSERT INTO Employee VALUES('925498638',3,'isam majed','0566327692','hebron',TO_DATE('1997/06/10', 'yyyy/mm/dd'));
+INSERT INTO Employee VALUES('925428638',4,'ahmad sami','0566519992','Ramallah',TO_DATE('1998/07/22', 'yyyy/mm/dd'));
+INSERT INTO Employee VALUES('929828638',5,'khaled ali','0599519992','tulkarem',TO_DATE('1998/07/22', 'yyyy/mm/dd'));
+INSERT INTO Employee VALUES('929821138',6,'motee shami','0595516792','jerusalem',TO_DATE('1990/03/25', 'yyyy/mm/dd'));
+INSERT INTO Employee VALUES('769821128',7,'hatem radi','0595516792','nablus',TO_DATE('1999/01/23', 'yyyy/mm/dd'));
+
+INSERT INTO Manager VALUES('406820142',123456,0,0);
+
+INSERT INTO Driver VALUES('925428638','19248H','KIA','medium');
+INSERT INTO Driver VALUES('925498638','20209A','mercedes','big');
+INSERT INTO Driver VALUES('929828638','89649B','VW','small');
+INSERT INTO Driver VALUES('929821138','56972E','fiat','small');
+INSERT INTO Driver VALUES('769821128','9689A','mercedes','big');
+
+INSERT INTO Package VALUES(1,'small','mobile phone','not paid',1200,100,TO_DATE('2021/07/25', 'yyyy/mm/dd'),'929828638','4489','99');
+INSERT INTO Package VALUES(2,'small','camera','not paid',2000,100,TO_DATE('2021/07/28', 'yyyy/mm/dd'),'929821138','9862','68');
+INSERT INTO Package VALUES(3,'big','furniture','paid',10000,500,TO_DATE('2021/08/03', 'yyyy/mm/dd'),'769821128','4068','57');
+INSERT INTO Package VALUES(4,'medium','fridge','paid',3000,200,TO_DATE('2021/08/05', 'yyyy/mm/dd'),'925428638','7865','26');
+INSERT INTO Package VALUES(5,'big','Cabinetry','not paid',2500,250,TO_DATE('2021/08/11', 'yyyy/mm/dd'),'925498638','5896','89');
+INSERT INTO Package VALUES(6,'small','bag','paid',120,30,TO_DATE('2021/08/01', 'yyyy/mm/dd'),'929828638','9862','26');
+

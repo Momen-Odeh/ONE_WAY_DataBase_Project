@@ -1,0 +1,83 @@
+create table Employee(
+SSN NUMBER(9) CONSTRAINT ssn_employee primary key,
+Emp_ID NUMBER(5) NOT NULL UNIQUE,
+Name_Emp VARCHAR2(20) NOT NULL  ,
+Phone NUMBER(14) NOT NULL ,
+Address VARCHAR2(50) ,
+employment_date DATE,
+Birth_Date DATE ,
+Password varchar2(20) Not NULL
+);
+
+create table Manager(
+Manager_SSN NUMBER(9) ,
+Password_Collections varchar2(20) , 
+SupplierCollections NUMBER(6) , 
+TotalCash NUMBER(9),
+CONSTRAINT Manager_PrimaryKey primary key(Manager_SSN,Password_Collections),
+CONSTRAINT Manager_ForeignKey FOREIGN KEY(Manager_SSN) REFERENCES Employee(SSN)
+);
+
+create table Driver(
+Driver_SSN NUMBER(9) ,
+vehicle_ID varchar2(20) UNIQUE, 
+Brand VARCHAR2(30) , 
+sizeVecel VARCHAR2(15),
+CONSTRAINT Driver_PrimaryKey PRIMARY KEY(Driver_SSN),
+CONSTRAINT Driver_ForeignKey FOREIGN KEY(Driver_SSN) REFERENCES Employee(SSN)
+);
+create table Casher(
+Casher_SSN NUMBER(9) ,
+Scientific_degree varchar2(20), 
+CONSTRAINT Casher_PrimaryKey PRIMARY KEY(Casher_SSN),
+CONSTRAINT Casher_ForeignKey FOREIGN KEY(Casher_SSN) REFERENCES Employee(SSN)
+);
+create table Client(
+Client_SSN Number(9), 
+Name varchar2(30) NOT NULL,
+Phone number(14),
+Address varchar2(30),
+Password varchar2(20), 
+CONSTRAINT Client_PrimaryKey PRIMARY KEY(Client_SSN)
+);
+create table Recipient(
+Recipient_SSN Number(9), 
+Name varchar2(30) NOT NULL,
+Phone Number(14) NOT NULL , 
+Address varchar2(50) NOT NULL,
+CONSTRAINT Recipient_PrimaryKey PRIMARY KEY(Recipient_SSN)
+);
+create table Package(
+PackageID INT , 
+SizePackage VARCHAR2(30) , 
+Description VARCHAR(50),
+state VARCHAR(30) NOT NULL,
+ price_product  NUMBER(5),
+ deliveryFee NUMBER(5),
+ Sending_Date DATE ,
+ DeliveryDate DATE,
+ image BLOB  , 
+ Driver_SSN NUMBER(9),
+ Casher_SSN  NUMBER(9),
+ Client_SSN NUMBER(9),
+ Recipient_SSN NUMBER(9),
+CONSTRAINT Package_PrimaryKey PRIMARY KEY(PackageID),
+CONSTRAINT PackageDriver_ForeignKey FOREIGN KEY(Driver_SSN) REFERENCES Driver(Driver_SSN),
+CONSTRAINT PackageCasher_ForeignKey FOREIGN KEY(Casher_SSN) REFERENCES Casher(Casher_SSN),
+CONSTRAINT PackageClient_ForeignKey FOREIGN KEY(Client_SSN) REFERENCES Client (Client_SSN),
+CONSTRAINT PackageRecipient_ForeignKey FOREIGN KEY(Recipient_SSN) REFERENCES Recipient(Recipient_SSN)
+);
+
+CREATE SEQUENCE EmpIDSEQ
+START WITH 2
+INCREMENT BY 1
+order;
+
+CREATE SEQUENCE PACID
+START WITH 1
+INCREMENT BY 1
+order;
+
+INSERT into employee values (55 ,EMPIDSEQ.nextval,'e',55,'e',TO_DATE('1997/06/10', 'yyyy/mm/dd'),TO_DATE('1997/06/10', 'yyyy/mm/dd'),'5');
+insert into PACKAGE values (PACID.nextval,'big','contain glass','on waiting',50, null,TO_DATE('1997/06/10', 'yyyy/mm/dd'),null
+,null,null,null,null,999); 
